@@ -1,0 +1,47 @@
+{
+    "name": "mapbox-gl-feature-drag-and-drop",
+    "version": "1.0.0",
+    "description": "Mapbox GL Feature drag and drop plugin",
+    "keywords": [
+        "mapbox",
+        "mapbox-gl",
+        "webgl",
+        "drap",
+        "drop",
+        "drag-and-drop",
+        "drag-d-drop"
+    ],
+    "main": "./src/index.js",
+    "author": "Cyrille Pontvieux",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/jrd/mapbox-gl-feature-drag-and-drop.git"
+    },
+    "homepage": "https://github.com/jrd/mapbox-gl-feature-drag-and-drop.git",
+    "peerDependencies": {
+        "mapbox-gl": "^0.41.0"
+    },
+    "devDependencies": {
+        "babel-core": "^6.26.0",
+        "babelify": "^8.0.0",
+        "brfs": "^1.4.3",
+        "browserify": "^14.5.0",
+        "exorcist": "^1.0.0",
+        "eslint": "^2.13.1",
+        "jsdoc": "^3.5.5",
+        "mapbox-gl": "^0.41.0",
+        "tui-jsdoc-template": "^1.2.2"
+    },
+    "browserify": {
+        "transform": [
+            "babelify",
+            "brfs"
+        ]
+    },
+    "scripts": {
+        "prepare": "yarn run build",
+        "build": "mkdir -p dist && browserify -s MapboxFeatureDragNDrop -o dist/mapbox-gl-feature-drag-and-drop.js .",
+        "docs": "jsdoc -c jsdoc.json"
+    }
+}
