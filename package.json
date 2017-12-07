@@ -11,14 +11,14 @@
         "drag-and-drop",
         "drag-d-drop"
     ],
-    "main": "./src/index.js",
+    "main": "./dist/mapbox-gl-feature-drag-and-drop.js",
     "author": "Cyrille Pontvieux",
     "license": "MIT",
     "repository": {
         "type": "git",
         "url": "https://github.com/jrd/mapbox-gl-feature-drag-and-drop.git"
     },
-    "homepage": "https://github.com/jrd/mapbox-gl-feature-drag-and-drop.git",
+    "homepage": "https://jrd.github.io/mapbox-gl-feature-drag-and-drop/",
     "peerDependencies": {
         "mapbox-gl": "^0.41.0"
     },
@@ -27,21 +27,24 @@
         "babelify": "^8.0.0",
         "brfs": "^1.4.3",
         "browserify": "^14.5.0",
+        "derequire": "^2.0.6",
+        "eslint": "^4.12.1",
         "exorcist": "^1.0.0",
-        "eslint": "^2.13.1",
         "jsdoc": "^3.5.5",
         "mapbox-gl": "^0.41.0",
-        "tui-jsdoc-template": "^1.2.2"
+        "tui-jsdoc-template": "^1.2.2",
+        "uglifyify": "^4.0.5"
     },
     "browserify": {
         "transform": [
             "babelify",
-            "brfs"
+            "brfs",
+            "uglifyify"
         ]
     },
     "scripts": {
-        "prepare": "yarn run build",
-        "build": "mkdir -p dist && browserify -s MapboxFeatureDragNDrop -o dist/mapbox-gl-feature-drag-and-drop.js .",
+        "prepublishOnly": "yarn run build && yarn run docs",
+        "build": "mkdir -p dist && browserify -s MapboxFeatureDragNDrop -d ./src/index.js -g uglifyify | derequire | exorcist -b . dist/mapbox-gl-feature-drag-and-drop.js.map > dist/mapbox-gl-feature-drag-and-drop.js",
         "docs": "jsdoc -c jsdoc.json"
     }
 }
