@@ -88,6 +88,14 @@ class FeatureDragNDropHandler {
     }
 
     /**
+     * Returns the feature on which the drag starts.
+     * @returns {Object} the feature on which the drag starts.
+     */
+    getFeature() {
+        return this._feature;
+    }
+
+    /**
      * Tells if the event is processed by this handler or not.
      * @private
      * @param {Event} e any browser event but probably on MouseEvent or TouchEvent.
