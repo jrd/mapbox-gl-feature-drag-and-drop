@@ -1,6 +1,6 @@
 {
     "name": "mapbox-gl-feature-drag-and-drop",
-    "version": "1.1.0",
+    "version": "1.1.1",
     "description": "Mapbox GL Feature drag and drop plugin",
     "keywords": [
         "mapbox",
@@ -33,7 +33,7 @@
         "jsdoc": "^3.5.5",
         "mapbox-gl": "^0.41.0",
         "tui-jsdoc-template": "^1.2.2",
-        "uglifyify": "^4.0.5"
+        "uglifyify": "^5.0.2"
     },
     "browserify": {
         "transform": [
